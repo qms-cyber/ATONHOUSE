@@ -11,20 +11,17 @@
 <body>
     <p>กำลังเปิดระบบจัดการคลังสินค้า...</p>
     <script>
-        // URL ของ Web App หลักของคุณ (ต้องเปลี่ยน)
-        const WEB_APP_URL = "https://qms-cyber.github.io/ATONHOUSE/";
+        // ===== VVVVVV แก้ไขบรรทัดนี้ VVVVVV =====
+        const WEB_APP_URL = "https://qms-cyber.github.io/ATONHOUSE/"; // <--- นำ URL ของ Web App หลักมาใส่ที่นี่
+        // ======================================
 
-        // อ่านค่า qcId จาก URL hash
         if (location.hash && location.hash.includes('qcId=')) {
             const params = new URLSearchParams(location.hash.substring(1));
             const qcId = params.get('qcId');
-
             if (qcId) {
-                // เก็บค่า qcId ไว้ใน sessionStorage
                 sessionStorage.setItem('scannedQcId', qcId);
             }
         }
-        // ส่งต่อไปยัง Web App หลักทันที
         window.location.href = WEB_APP_URL;
     </script>
 </body>
